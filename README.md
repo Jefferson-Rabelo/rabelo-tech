@@ -1,4 +1,4 @@
-Rabelo.Tech
+RabeloTec
 
 Site institucional da Rabelo.Tech, desenvolvido para apresentar
 serviços de criação de sites, landing pages e sistemas web.
@@ -13,7 +13,7 @@ Tecnologias
 
 Projeto
 
-Site: https://rabelo-tech.vercel.app/
+Site: rabelotec.com.br
 
 Serviços
 
