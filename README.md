@@ -1,6 +1,6 @@
 RabeloTec
 
-Site institucional da Rabelo.Tech, desenvolvido para apresentar
+Site institucional da Rabelo.Tec, desenvolvido para apresentar
 serviços de criação de sites, landing pages e sistemas web.
 
 Tecnologias
