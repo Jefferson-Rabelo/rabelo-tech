@@ -12,7 +12,7 @@ function Logo() {
 
                 <h1 className="text-white font-bold text-lg">
                     Rabelo
-                    <span className="text-sky-400">.Tech</span>
+                    <span className="text-sky-400">.Tec</span>
                 </h1>
 
                 <p className="text-xs text-slate-400">

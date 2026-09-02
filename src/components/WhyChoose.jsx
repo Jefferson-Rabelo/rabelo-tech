@@ -28,7 +28,7 @@ function WhyChoose() {
 
                 <h2 className="text-4xl font-bold text-center  text-white mb-12">
                     Por que escolher a
-                    <span className="text-cyan-500"> Rabelo.Tech?</span>
+                    <span className="text-cyan-500"> Rabelo.Tec?</span>
                 </h2>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

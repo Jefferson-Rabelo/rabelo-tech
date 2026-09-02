@@ -37,7 +37,7 @@ function Sobre() {
                         <h2 className="text-4xl font-bold text-white mb-6">
                             Quem está por trás da
                             <span className="text-sky-400">
-                                {" "}Rabelo.Tech?
+                                {" "}Rabelo.Tec?
                             </span>
                         </h2>
 
