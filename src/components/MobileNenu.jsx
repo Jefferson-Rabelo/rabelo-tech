@@ -1,152 +1,160 @@
+
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaArrowRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 
 function MobileMenu() {
-
     const [open, setOpen] = useState(false);
 
     const closeMenu = () => {
         setOpen(false);
     };
 
-    return (
+    const linkClass = `
+        px-4 py-3.5 rounded-xl
+        text-[#D4C9E3]
+        font-medium
+        hover:text-white
+        hover:bg-[#7138E8]/20
+        active:bg-[#7138E8]/30
+        transition-all duration-300
+    `;
 
+    return (
         <div className="lg:hidden relative">
 
-            {/* BOTÃO */}
-
+            {/* BOTÃO DO MENU */}
             <button
+                type="button"
                 onClick={() => setOpen(!open)}
                 aria-label={open ? "Fechar menu" : "Abrir menu"}
-                className="w-11 h-11 flex items-center justify-center
-                           rounded-xl
-                           border border-slate-700
-                           bg-slate-900/80
-                           text-slate-200
-                           hover:text-sky-400
-                           hover:border-sky-400
-                           transition-all duration-300"
+                aria-expanded={open}
+                className={`
+                    w-11 h-11 flex items-center justify-center
+                    rounded-xl
+                    border
+                    transition-all duration-300
+                    ${open
+                        ? "bg-[#7138E8] border-[#7138E8] text-white"
+                        : "bg-white/5 border-white/15 text-[#D4C9E3] hover:bg-[#7138E8]/20 hover:border-[#B99AFB]/40 hover:text-white"
+                    }
+                `}
             >
-
-                {open ? (
-                    <FaTimes size={20} />
-                ) : (
-                    <FaBars size={20} />
-                )}
-
+                <AnimatePresence mode="wait" initial={false}>
+                    <motion.span
+                        key={open ? "close" : "open"}
+                        initial={{ opacity: 0, rotate: -90, scale: 0.7 }}
+                        animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                        exit={{ opacity: 0, rotate: 90, scale: 0.7 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                        {open ? <FaTimes size={19} /> : <FaBars size={19} />}
+                    </motion.span>
+                </AnimatePresence>
             </button>
 
-
-            {/* MENU */}
-
+            {/* MENU MOBILE */}
             <AnimatePresence>
-
                 {open && (
-
                     <motion.div
-                        initial={{
-                            opacity: 0,
-                            y: -15
-                        }}
-
-                        animate={{
-                            opacity: 1,
-                            y: 0
-                        }}
-
-                        exit={{
-                            opacity: 0,
-                            y: -15
-                        }}
-
-                        transition={{
-                            duration: 0.25
-                        }}
-
-                        className="absolute top-full right-0 mt-3
-                                   w-[calc(100vw-2rem)]
-                                   max-w-sm
-                                   bg-[#020617]
-                                   border border-slate-800
-                                   rounded-2xl
-                                   shadow-2xl
-                                   overflow-hidden"
+                        initial={{ opacity: 0, y: -12, scale: 0.98 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                        transition={{ duration: 0.25 }}
+                        className="
+                            absolute top-full right-0 mt-4
+                            w-[calc(100vw-2rem)]
+                            max-w-sm
+                            bg-[#1E0E37]
+                            border border-white/10
+                            rounded-2xl
+                            shadow-2xl shadow-black/30
+                            overflow-hidden
+                        "
                     >
 
-                        <nav className="p-4 flex flex-col gap-1">
+                        {/* CABEÇALHO DO MENU */}
+                        <div className="px-5 pt-5 pb-3">
+                            <span className="text-xs font-bold tracking-[0.18em] uppercase text-[#B99AFB]">
+                                Navegação
+                            </span>
+                        </div>
+
+                        {/* LINKS */}
+                        <nav className="px-3 pb-3 flex flex-col gap-1">
 
                             <a
-                                href="#inicio"
+                                href="/#inicio"
                                 onClick={closeMenu}
-                                className="px-4 py-3.5 rounded-xl
-                                           text-white
-                                           bg-sky-600
-                                           hover:text-sky-400
-                                           hover:bg-sky-400/10
-                                           transition"
+                                className={linkClass}
                             >
                                 Início
                             </a>
 
                             <a
-                                href="#servicos"
+                                href="/#servicos"
                                 onClick={closeMenu}
-                                className="px-4 py-3.5 rounded-xl
-                                           text-white
-                                           bg-sky-600
-                                           hover:text-sky-400
-                                           hover:bg-sky-400/10
-                                           transition"
+                                className={linkClass}
                             >
                                 Serviços
                             </a>
 
                             <a
-                                href="#projects"
+                                href="/#projects"
                                 onClick={closeMenu}
-                                className="px-4 py-3.5 rounded-xl
-                                           text-white
-                                           bg-sky-600
-                                           hover:text-sky-400
-                                           hover:bg-sky-400/10
-                                           transition"
+                                className={linkClass}
                             >
                                 Projetos
                             </a>
 
                             <a
-                                href="#sobre"
+                                href="/sobre"
                                 onClick={closeMenu}
-                                className="px-4 py-3.5 rounded-xl
-                                           text-white
-                                           bg-sky-600
-                                           hover:text-sky-400
-                                           hover:bg-sky-400/10
-                                           transition"
+                                className={linkClass}
                             >
                                 Sobre
                             </a>
 
                             <a
-                                href="#contato"
+                                href="/#contato"
                                 onClick={closeMenu}
-                                className="px-4 py-3.5 rounded-xl
-                                           text-white
-                                           bg-sky-600
-                                           hover:text-sky-400
-                                           hover:bg-sky-400/10
-                                           transition"
+                                className={linkClass}
                             >
                                 Contato
                             </a>
 
                         </nav>
 
+                        {/* DIVISOR */}
+                        <div className="h-px bg-white/10 mx-5" />
+
+                        {/* BOTÃO ORÇAMENTO */}
+                        <div className="p-4">
+                            <a
+                                href="https://wa.me/5544999847071?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento%20de%20um%20projeto."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                onClick={closeMenu}
+                                className="
+                                    flex items-center justify-center gap-3
+                                    w-full px-5 py-3.5
+                                    rounded-xl
+                                    bg-[#7138E8]
+                                    text-white
+                                    font-semibold
+                                    hover:bg-[#824FF0]
+                                    hover:-translate-y-0.5
+                                    shadow-lg shadow-[#7138E8]/20
+                                    transition-all duration-300
+                                "
+                            >
+                                Solicitar orçamento
+                                <FaArrowRight size={14} />
+                            </a>
+                        </div>
+
                     </motion.div>
-
                 )}
-
             </AnimatePresence>
 
         </div>

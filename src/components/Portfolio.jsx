@@ -1,40 +1,38 @@
+
 import { projects } from "../data/projects";
 import SectionTitle from "./SelectionTitle";
 
 function Portfolio() {
     return (
-        <section id="projects" className="bg-[#000A3B] py-24 border-t border-slate-700/50">
+        <section
+            id="projects"
+            className="relative overflow-hidden bg-[#1D1237] py-24 border-t border-white/10"
+        >
+            {/* Efeito de luz no fundo */}
+            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-[#7138E8]/10 blur-[130px] rounded-full pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-6">
+            <div className="relative z-10 max-w-7xl mx-auto px-6">
 
                 <SectionTitle
                     title="Projetos que geram resultados"
                     subtitle="Conheça alguns exemplos de sites e sistemas desenvolvidos para ajudar empresas a crescer no ambiente digital."
                 />
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 ">
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-14">
 
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className=" group
-        rounded-2xl
-        overflow-hidden
-        bg-[#0d2459]
-        border
-        border-slate-700/60
-        hover:border-sky-500/40
-        hover:-translate-y-2
-        transition-all
-        duration-300"
+                            className="group rounded-2xl overflow-hidden bg-[#281B45] border border-white/10 hover:border-[#A47AF5]/50 hover:-translate-y-2 transition-all duration-300 shadow-[0_8px_30px_rgba(0,0,0,0.15)]"
                         >
 
                             {/* IMAGE */}
-                            <div className="overflow-hidden aspect-[16/10]">
+                            <div className="overflow-hidden aspect-[16/10] bg-[#30204F]">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-48 object-container"
+                                    loading="lazy"
+                                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
                             </div>
 
@@ -45,21 +43,13 @@ function Portfolio() {
                                     {project.title}
                                 </h3>
 
-                                <p className="text-sky-400 text-sm mt-2">
+                                <p className="text-[#B99AFB] text-sm mt-2 font-medium">
                                     {project.category}
                                 </p>
-                                <p className="text-slate-300 text-sm mt-3 leading-relaxed">
+
+                                <p className="text-[#C4BBD6] text-sm mt-3 leading-relaxed">
                                     {project.description}
                                 </p>
-
-                                {/* <a
-                                    href={project.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-block mt-4 px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 transition"
-                                >
-                                    Ver Projeto
-                                </a> */}
 
                             </div>
 
@@ -69,7 +59,6 @@ function Portfolio() {
                 </div>
 
             </div>
-
         </section>
     );
 }
